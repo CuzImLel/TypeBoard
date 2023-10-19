@@ -1,0 +1,90 @@
+.boardnav {
+  width: 100%;
+  height: 100px;
+  border-bottom: 1px solid rgb(201, 201, 201);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.boardnav_content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+}
+
+.boardnav_left {
+  width: 50%;
+  height: 100%;
+  align-items: center;
+}
+
+.boardnav_right {
+  display: flex;
+  width: 50%;
+  height: 100%;
+  align-items: end;
+  justify-content: right;
+  gap: 20px;
+}
+.boardnav_right ul {
+  height: 100%;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+}
+
+.boardnav_right li {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+  padding: 7px 15px 7px 10px;
+  border-radius: 5px;
+}
+
+.boardnav_right li:hover {
+  background-color: var(--icon_hover);
+
+  color: white;
+}
+
+.add_task_button {
+  background-color: var(--icon_hover);
+  color: white;
+  outline: none;
+  border-radius: 30px;
+  padding: 10px 30px 10px 30px;
+  border: none;
+  cursor: pointer;
+}
+
+.boardnav_right form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--icon_hover);
+  border-radius: 5px;
+}
+
+.boardnav_right form input {
+  height: 100%;
+  background-color: transparent;
+  outline: none;
+  border: none;
+  padding: 5px;
+}
+.boardnav_right form button {
+  height: 100%;
+  background-color: transparent;
+  border: none;
+  padding: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

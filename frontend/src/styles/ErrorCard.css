@@ -1,0 +1,43 @@
+.errorcard {
+  position: absolute;
+  right: 0px;
+  bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(253, 1, 1, 0.151);
+  border-radius: 15px 0px 0px 15px;
+  padding: 10px;
+  width: 400px;
+  border: 2px solid rgb(219, 132, 132);
+  gap: 20px;
+  opacity: 1;
+  animation: fade 0.1s linear;
+}
+
+@keyframes fade {
+  0% {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.errorcard span {
+  color: aliceblue;
+  background-color: rgb(235, 53, 53);
+  border-radius: 30%;
+  padding: 5px;
+  font-size: 30px;
+}
+
+.errorcard div {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  width: 100%;
+  font-size: 20px;
+}

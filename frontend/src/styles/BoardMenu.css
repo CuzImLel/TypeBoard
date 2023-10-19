@@ -1,0 +1,74 @@
+.board_menu {
+  width: 280px;
+  background-color: rgb(231, 235, 238);
+}
+
+.upper_board_selecter {
+  display: flex;
+  padding: 10px;
+  height: 80px;
+  justify-content: center;
+}
+.upper_board_selecter:hover {
+  background-color: var(--text_hover);
+  transition: 0.5s;
+}
+
+.upper_board_selecter_content {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  cursor: pointer;
+}
+
+.upper_board_selecter_content img {
+  border-radius: 8px;
+}
+
+.upper_board_selecter_content div {
+  font-family: "Roboto", sans-serif;
+}
+
+.upper_board_selecter_content p {
+  font-size: 15px;
+}
+
+.upper_board_selecter_content h1 {
+  font-weight: 400;
+  font-size: 20px;
+}
+
+.board_configuration_cards {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  align-items: center;
+}
+.board_configuration_cards ul {
+  list-style: none;
+  width: 90%;
+}
+
+.board_configuration_cards ul li {
+  border-radius: 5px;
+  font-family: "Roboto", sans-serif;
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+.board_configuration_cards ul li div {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  gap: 10px;
+  padding: 10px;
+}
+
+.board_configuration_cards ul li div span {
+  color: var(--icon_hover);
+}
+
+.board_configuration_cards ul li:hover {
+  background-color: var(--text_hover);
+}
