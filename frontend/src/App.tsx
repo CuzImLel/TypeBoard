@@ -9,6 +9,12 @@ import "./styles/CreateBoardPanel.css";
 import "./styles/ErrorCard.css";
 import "./styles/Workspaces.css";
 import "./styles/Boardnav.css";
+import "./styles/AddTaskMenu.css";
+import "./styles/TaskView.css";
+import "./styles/Task.css";
+
+
+
 
 const App: React.FC = () => {
   return (

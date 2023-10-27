@@ -9,6 +9,8 @@ interface props {
   boardselector: boolean;
   currentBoard: BoardView | undefined;
   setCurrentBoard: (b: BoardView) => void;
+  boardOption:string;
+  setBoardOption: (option:string) => void;
 }
 
 const BoardMenu: React.FC<props> = ({
@@ -17,6 +19,8 @@ const BoardMenu: React.FC<props> = ({
   closeSelector,
   currentBoard,
   setCurrentBoard,
+  boardOption,
+  setBoardOption
 }) => {
   const handle: Function = () => {
     if (boardselector) {
@@ -56,19 +60,19 @@ const BoardMenu: React.FC<props> = ({
         )}
         <div className="board_configuration_cards">
           <ul>
-            <li>
+            <li onClick={() => setBoardOption("board")} style={{backgroundColor: `var(${boardOption === "board" ? "--option" : "--default"})`}}>
               <div>
                 <span className="material-symbols-rounded">leaderboard</span>
                 <a>Board</a>
               </div>
             </li>
-            <li>
+            <li onClick={() => setBoardOption("stats")} style={{backgroundColor: `var(${boardOption === "stats" ? "--option" : "--default"})`}}>
               <div>
                 <span className="material-symbols-rounded">analytics</span>
                 <a>Stats</a>
               </div>
             </li>
-            <li>
+            <li onClick={() => setBoardOption("features")} style={{backgroundColor: `var(${boardOption === "features" ? "--option" : "--default"})`}}>
               <div>
                 <span className="material-symbols-rounded">
                   trail_length_short
@@ -77,13 +81,13 @@ const BoardMenu: React.FC<props> = ({
               </div>
             </li>
 
-            <li>
+            <li onClick={() => setBoardOption("download")} style={{backgroundColor: `var(${boardOption === "download" ? "--option" : "--default"})`}}>
               <div>
                 <span className="material-symbols-rounded">download</span>
                 <a>Download</a>
               </div>
             </li>
-            <li>
+            <li onClick={() => setBoardOption("settings")} style={{backgroundColor: `var(${boardOption === "settings" ? "--option" : "--default"})`}}>
               <div>
                 <span className="material-symbols-rounded">settings</span>
                 <a>Settings</a>

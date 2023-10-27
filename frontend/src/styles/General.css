@@ -3,9 +3,16 @@
 :root {
   --icon_color: #dfdfdf;
   --icon_hover: rgba(0, 136, 255, 0.767);
+  --icon_hover_after: rgba(4, 114, 211, 0.767);
   --text_hover: rgb(174, 215, 250);
   --darker-theme: #101729;
   --dark_text: #293b66;
+  --default: transparent;
+  --option:rgba(0, 132, 255, 0.24);
+  --correct: rgb(106, 214, 106);
+  --priority_low: rgb(16, 131, 16);
+  --priority_medium: rgb(245, 173, 65);
+  --priority_high: rgb(211, 67, 67);
 }
 
 * {
@@ -17,6 +24,7 @@
 html,
 body {
   height: 100%;
+  background-color: #dbdbdb;
 }
 
 #root {
@@ -44,4 +52,14 @@ body {
   background-color: #0088ff;
   border-radius: 10px;
   border: 3px solid #ffffff;
+}
+
+.main_section {
+  display: flex;
+  flex-direction: column;
+  
+  width: 100%;
+  height: 100%;
+
+
 }

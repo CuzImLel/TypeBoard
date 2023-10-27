@@ -4,9 +4,24 @@ import user from "../assets/user.png";
 
 interface props {
   openPanel: () => void;
+  setMenuState: (open:boolean) => void;
+  menuState: boolean;
 }
 
-const Sidebar: React.FC<props> = ({ openPanel }) => {
+const Sidebar: React.FC<props> = ({ openPanel, setMenuState, menuState }) => {
+
+
+  const switchMenuState = ():void => {
+      if (menuState) {
+        setMenuState(false);
+
+      } else {
+        setMenuState(true);
+      }
+
+  }
+
+
   return (
     <>
       <div className="sidebar">
@@ -28,7 +43,7 @@ const Sidebar: React.FC<props> = ({ openPanel }) => {
         <div className="under_sidebar">
           <div className="under_sidebar_content">
             <li>
-              <span className="material-symbols-rounded">menu</span>
+              <span className="material-symbols-rounded" onClick={() => switchMenuState()}>menu</span>
             </li>
             <li>
               <span className="material-symbols-rounded">help</span>

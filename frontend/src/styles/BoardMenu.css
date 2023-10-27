@@ -1,6 +1,7 @@
 .board_menu {
   width: 280px;
   background-color: rgb(231, 235, 238);
+  
 }
 
 .upper_board_selecter {
@@ -8,6 +9,7 @@
   padding: 10px;
   height: 80px;
   justify-content: center;
+  
 }
 .upper_board_selecter:hover {
   background-color: var(--text_hover);
@@ -18,8 +20,10 @@
   width: 100%;
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
+  gap: 10px;
   cursor: pointer;
+  justify-content: space-between;
+  
 }
 
 .upper_board_selecter_content img {
@@ -28,10 +32,12 @@
 
 .upper_board_selecter_content div {
   font-family: "Roboto", sans-serif;
+  overflow-x: hidden;
 }
 
 .upper_board_selecter_content p {
   font-size: 15px;
+
 }
 
 .upper_board_selecter_content h1 {

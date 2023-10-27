@@ -1,6 +1,7 @@
 import axios from "axios";
 import React from "react";
 import { BoardView } from "../BoardView";
+import getColorById from "../Iconutils";
 
 interface props {
   title: string;
@@ -27,8 +28,10 @@ const BoardSelectionCard: React.FC<props> = ({
       .then((res) => {
         const board: BoardView = {
           _id: res.data._id,
+          board: res.data.board,
           name: res.data.name,
           description: res.data.description,
+          icon: res.data.background
         };
 
         setCurrentBoard(board);
@@ -39,7 +42,7 @@ const BoardSelectionCard: React.FC<props> = ({
 
   return (
     <div className="board_selection_card" onClick={() => handleClick()}>
-      <div className="board_selection_card_left"></div>
+      <div className="board_selection_card_left" style={{backgroundColor: getColorById(background)}}></div>
       <div className="board_selection_card_right">
         <h2>{title}</h2>
         <p>{description}</p>

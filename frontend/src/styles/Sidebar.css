@@ -43,6 +43,10 @@
   width: 100%;
 }
 
+.under_sidebar img {
+  cursor: pointer;
+}
+
 .under_sidebar_content {
   display: flex;
   flex-direction: column;

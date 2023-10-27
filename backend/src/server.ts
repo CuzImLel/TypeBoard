@@ -3,7 +3,7 @@ import express from "express";
 
 import compression from "compression";
 import cors from "cors";
-import mongoose from "mongoose";
+import mongoose, { mongo } from "mongoose";
 const app = express();
 const PORT: number = 8080;
 import router from "./router";
@@ -30,6 +30,13 @@ const MONGO_URL =
   pw +
   "@cluster0.egjzupz.mongodb.net/?retryWrites=true&w=majority";
 mongoose.Promise = Promise;
-mongoose.connect(MONGO_URL);
+
+mongoose.connect(MONGO_URL).then(() => console.log("[TYPE-BOARD-BACKEND] => Successfully connected to MongoDB!"));
+
+
+
 mongoose.connection.on("error", (error: Error) => console.log(error));
+app.use("/", router());
+
+
 app.use("/", router());

@@ -48,7 +48,9 @@ const Workspaces: React.FC<props> = ({
               setCurrentBoard={setCurrentBoard}
               closeSelector={closeBoardSelector}
             />
-          ))}
+          )) ?? (
+            <span className="material-symbols-outlined" id="loading_symbol">sync</span>
+          )}
         </div>
       </div>
     </div>
