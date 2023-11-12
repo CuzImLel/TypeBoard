@@ -31,12 +31,12 @@
 }
 
 .boardnav_left {
-  
   height: 100%;
   display: flex;
   align-items: center;
   justify-content: left;
   gap: 10px;
+  width: 500px;
 }
 .boardnav_left li {
   list-style: none;
@@ -86,7 +86,7 @@
   background-color: var(--icon_hover);
   color: white;
   outline: none;
-  border-radius: 30px;
+  border-radius: 5px;
   padding: 10px 30px 10px 30px;
   border: none;
   cursor: pointer;

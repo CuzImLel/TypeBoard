@@ -1,6 +1,7 @@
 import mongoose from "mongoose";
 
 const BoardSchema = new mongoose.Schema({
+  _id: { type: mongoose.Schema.Types.ObjectId, auto: true, required: false },
   name: { type: String, required: true },
   description: { type: String, required: true },
   background: { type: Number, required: true },
@@ -26,13 +27,23 @@ export const createNewBoard = async (
   } catch (error) {}
 };
 export const getBoards = () => Board.find().lean();
-export const getBoardByName = (name: string) => Board.findOne({ name });
-export const deleteBoardByName = (name: string) => Board.deleteOne({ name });
-export const changeBoardName = (name: string, newname: string) =>
-  Board.updateOne({ name }, { name: newname });
-export const changeBoardDescription = (name: string, description: string) =>
-  Board.updateOne({ name }, { description: description });
-export const changeTodoAmount = (name: string, todos: number) =>
-  Board.updateOne({ name }, { todos: todos });
-export const changeBoardBackground = (name: string, background: number) =>
-  Board.updateOne({ name }, { background: background });
+export const getBoardByID = (id: string) => Board.findOne({ _id: id });
+export const deleteBoardByID = (id: string) => Board.deleteOne({ _id: id });
+export const changeBoardName = (id: string, newname: string) =>
+  Board.updateOne({ _id: id }, { name: newname });
+export const changeBoardDescription = (id: string, description: string) =>
+  Board.updateOne({ _id: id }, { description: description });
+export const changeTodoAmount = (id: string, todos: number) =>
+  Board.updateOne({ _id: id }, { todos: todos });
+export const changeBoardBackground = (id: string, background: number) =>
+  Board.updateOne({ _id: id }, { background: background });
+export const updateBoardStats = (
+  id: string,
+  name: string,
+  description: string,
+  background: number
+) =>
+  Board.updateOne(
+    { _id: id },
+    { name: name, description: description, background: background }
+  );

@@ -27,7 +27,7 @@
   justify-content: center;
   border-bottom: 2px solid var(--icon_hover);
   padding: 10px 0px 15px 0px;
-  margin: 15px;
+  margin: 15px 15px 0px 15px;
 }
 
 .upper_sidebar_inner_second {
@@ -35,7 +35,6 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 20px;
 }
 
 .sidebar_logo {

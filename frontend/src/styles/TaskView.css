@@ -1,11 +1,10 @@
 .task_view {
-    width: 100%;
-    max-width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-   
-    overflow-y: scroll;
-    padding: 20px;
-    
+  width: 100%;
+
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 20px;
+  overflow-y: auto;
+  padding: 20px;
 }

@@ -1,0 +1,55 @@
+.filterbox {
+  display: flex;
+  width: 300px;
+  height: 100%;
+  background-color: rgb(231, 235, 238);
+  padding: 10px;
+  border-left: 2px solid var(--text_hover);
+}
+
+.filter_content {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-top: 20px;
+  gap: 30px;
+}
+
+.filter_content div h2 {
+  margin-bottom: 10px;
+}
+
+.filter_content h1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.state_filter {
+  gap: 10px;
+  display: flex;
+
+  flex-direction: column;
+}
+
+.priority_filter {
+  gap: 10px;
+  display: flex;
+
+  flex-direction: column;
+}
+
+.state_filter input {
+  width: 20px;
+}
+
+.priority_filter input {
+  width: 20px;
+}
+
+.filter_content li {
+  list-style: none;
+  display: flex;
+  gap: 10px;
+}

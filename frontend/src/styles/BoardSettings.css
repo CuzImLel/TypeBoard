@@ -1,0 +1,122 @@
+.boardsettings {
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.boardsettings h1 {
+  font-size: 42px;
+}
+
+.boardsettings_content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 50px;
+  padding: 50px;
+  background-color: var(--text_hover);
+  border-radius: 20px;
+  text-align: left;
+}
+
+.boardsettings_content form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+
+.settings_seperator {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 80px;
+}
+
+.boardsettings_content label {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  width: 100%;
+  font-size: 20px;
+}
+
+.boardsettings_content input {
+  display: flex;
+  align-items: center;
+  text-align: left;
+  justify-content: left;
+  width: 100%;
+  padding: 10px 30px 10px 5px;
+  border-radius: 3px;
+  font-size: 18px;
+  outline: none;
+  border: 1px solid rgb(158, 158, 158);
+}
+
+.board_background_creater_2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+}
+.board_background_creater_2 label {
+  text-align: left;
+}
+
+.colorblock_list_2 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.update_board_submit {
+  width: 150px;
+  margin-top: 25px;
+  height: 50px;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  font-size: 20px;
+  background-color: var(--icon_hover);
+  color: white;
+  cursor: pointer;
+}
+
+.update_board_submit:hover {
+  background-color: var(--icon_hover_after);
+}
+
+.update_board_delete:hover {
+  background-color: rgba(185, 49, 49, 0.877);
+}
+
+.board_update_buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.update_board_delete {
+  width: 150px;
+  margin-top: 25px;
+  height: 50px;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  font-size: 20px;
+
+  color: white;
+  cursor: pointer;
+  background-color: var(--priority_high);
+}

@@ -8,7 +8,8 @@ import {
   deleteBoard,
   changeTodoamount,
   getAllBoards,
-  getBoardByname,
+  getBoardById,
+  updateBoard,
 } from "../controllers/board";
 
 export default (router: express.Router) => {
@@ -18,6 +19,7 @@ export default (router: express.Router) => {
   router.post("/board/change-board-background", changeBoardbackground);
   router.post("/board/delete-board", deleteBoard);
   router.post("/board/change-todo-amount", changeTodoamount);
+  router.post("/board/update-board", updateBoard);
   router.get("/board/get-all-boards", getAllBoards);
-  router.get("/board/get-board-by-name", getBoardByname);
+  router.get("/board/get-board-by-id", getBoardById);
 };

@@ -2,12 +2,13 @@ import express from "express";
 import {
   createNewBoard,
   getBoards,
-  getBoardByName,
-  deleteBoardByName,
+  getBoardByID,
+  deleteBoardByID,
   changeBoardName,
   changeBoardDescription,
   changeTodoAmount,
   changeBoardBackground,
+  updateBoardStats,
 } from "../db/board";
 
 export const createBoard = async (
@@ -30,10 +31,10 @@ export const changeBoarddescription = async (
   req: express.Request,
   res: express.Response
 ) => {
-  const { name, description } = req.body;
+  const { id, description } = req.body;
 
-  if (name && description) {
-    changeBoardDescription(name, description);
+  if (id && description) {
+    changeBoardDescription(id, description);
 
     return res.sendStatus(200).json().end();
   } else {
@@ -45,9 +46,9 @@ export const changeBoardname = async (
   req: express.Request,
   res: express.Response
 ) => {
-  const { name, newName } = req.body;
-  if (name && newName) {
-    changeBoardName(name, newName);
+  const { id, newName } = req.body;
+  if (id && newName) {
+    changeBoardName(id, newName);
     return res.sendStatus(200).json().end();
   } else {
     return res.sendStatus(400).json();
@@ -58,9 +59,9 @@ export const changeBoardbackground = async (
   req: express.Request,
   res: express.Response
 ) => {
-  const { name, background } = req.body;
-  if (name && background) {
-    changeBoardBackground(name, background);
+  const { id, background } = req.body;
+  if (id && background) {
+    changeBoardBackground(id, background);
     return res.sendStatus(200).json().end();
   } else {
     return res.sendStatus(400).json();
@@ -71,9 +72,9 @@ export const deleteBoard = async (
   req: express.Request,
   res: express.Response
 ) => {
-  const { name } = req.body;
-  if (name) {
-    deleteBoardByName(name);
+  const { id } = req.body;
+  if (id) {
+    await deleteBoardByID(id);
     return res.sendStatus(200).json().end();
   } else {
     return res.sendStatus(400).json();
@@ -84,23 +85,37 @@ export const changeTodoamount = async (
   req: express.Request,
   res: express.Response
 ) => {
-  const { name, amount } = req.body;
+  const { id, amount } = req.body;
 
-  if (name && amount) {
-    changeTodoAmount(name, amount);
+  if (id && amount) {
+    changeTodoAmount(id, amount);
     return res.sendStatus(200).json().end();
   } else {
     return res.sendStatus(400).json();
   }
 };
 
-export const getBoardByname = async (
+export const updateBoard = async (
   req: express.Request,
   res: express.Response
 ) => {
-  const { name } = req.query;
-  if (name) {
-    const board = await getBoardByName(name as string);
+  const { id, name, description, background } = req.body;
+
+  if (name && description && background) {
+    await updateBoardStats(id, name, description, background);
+    return res.sendStatus(200).json().end();
+  } else {
+    return res.sendStatus(400).json();
+  }
+};
+
+export const getBoardById = async (
+  req: express.Request,
+  res: express.Response
+) => {
+  const { id } = req.query;
+  if (id) {
+    const board = await getBoardByID(id as string);
     return res.json(board);
   } else {
     return res.sendStatus(400).json().end;

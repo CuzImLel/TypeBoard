@@ -1,17 +1,23 @@
-import axios from "axios";
 import React, { useState } from "react";
+import { BoardView } from "../BoardView";
+import axios from "axios";
+import getColorById from "../Iconutils";
 import ErrorCard from "./ErrorCard";
 
 interface props {
-  closePanel: () => void;
+  board: BoardView | undefined;
+  setCurrentboard: (board: BoardView) => void;
 }
 
-const CreateBoard: React.FC<props> = ({ closePanel }) => {
-  const [color, setColor] = useState<string>("purple");
-  const [title, setTitle] = useState<string>("");
-  const [description, setDescription] = useState<string>("");
+const BoardSettings: React.FC<props> = ({ board, setCurrentboard }) => {
+  const [title, setTitle] = useState<string | undefined>(board?.name);
+  const [description, setDescription] = useState<string | undefined>(
+    board?.description
+  );
   const [error, setError] = useState<string>("");
-
+  const [color, setColor] = useState<string | undefined>(
+    getColorById(board?.icon)
+  );
   const showError = (err: string): void => {
     setError(err);
     setTimeout((): void => {
@@ -21,7 +27,12 @@ const CreateBoard: React.FC<props> = ({ closePanel }) => {
 
   const validateValues = (): boolean => {
     const regex = /\s/;
-    if (title.length >= 3 && description.length >= 3) {
+    if (
+      title != undefined &&
+      description != undefined &&
+      title.length >= 3 &&
+      description.length >= 3
+    ) {
       return false;
     } else {
       return true;
@@ -51,29 +62,64 @@ const CreateBoard: React.FC<props> = ({ closePanel }) => {
     }
 
     axios
-      .post("http://localhost:8080/board/create-board", {
+      .post("http://localhost:8080/board/update-board", {
+        id: board?._id,
         name: title,
         description: description,
         background: identifier,
       })
       .then((res) => {
-        console.log("Board created successfully");
-        closePanel();
+        console.log("Board updated successfully");
+        if (
+          board != undefined &&
+          title != undefined &&
+          description != undefined
+        ) {
+          const newBoardView: BoardView = {
+            _id: board._id,
+
+            name: title,
+            description: description,
+            icon: identifier,
+          };
+          setCurrentboard(newBoardView);
+        }
+      })
+      .catch((err) => console.log(err));
+  };
+
+  const deleteBoard = (e: React.MouseEvent<HTMLElement>) => {
+    e.preventDefault();
+
+    axios
+      .post("http://localhost:8080/task/delete-boardtasks", {
+        board: board?._id,
+      })
+      .then((res) => {
+        axios
+          .post("http://localhost:8080/board/delete-board", {
+            id: board?._id,
+          })
+          .then((res) => {
+            console.log("Board deleted successfully");
+            window.location.reload();
+          })
+          .catch((err) => console.log(err));
       })
       .catch((err) => console.log(err));
   };
 
   return (
-    <div className="create_board_panel">
-      <div className="create_board_panel_content">
-        <p>Create new board</p>
+    <div className="boardsettings">
+      <div className="boardsettings_content">
+        <h1>Edit your Board!</h1>
         <form>
-          <div className="board_name_creater">
-            <label>Title:</label>
+          <div className="settings_seperator">
+            <label>Name</label>
             <input
+              id="name_change"
               type="text"
-              required
-              placeholder="Type in your board name"
+              placeholder={title}
               value={title}
               onChange={(e) => {
                 if (e.target.value.length <= 20) {
@@ -82,12 +128,12 @@ const CreateBoard: React.FC<props> = ({ closePanel }) => {
               }}
             ></input>
           </div>
-          <div className="board_description_creater">
-            <label>Description:</label>
+          <div className="settings_seperator">
+            <label>Description</label>
             <input
+              id="description_change"
               type="text"
-              required
-              placeholder="Type in your board description"
+              placeholder={description}
               value={description}
               onChange={(e) => {
                 if (e.target.value.length <= 30) {
@@ -96,9 +142,9 @@ const CreateBoard: React.FC<props> = ({ closePanel }) => {
               }}
             ></input>
           </div>
-          <div className="board_background_creater">
+          <div className="board_background_creater_2">
             <label>Icon:</label>
-            <ul className="colorblock_list">
+            <ul className="colorblock_list_2">
               <div
                 className="colorblock_purple"
                 onClick={() => setColor("purple")}
@@ -151,22 +197,22 @@ const CreateBoard: React.FC<props> = ({ closePanel }) => {
               </div>
             </ul>
           </div>
-          <section className="submit_boardcreation">
+          <div className="board_update_buttons">
             <button
               type="submit"
-              className="create_board_submit"
+              className="update_board_submit"
               onClick={sendToBackend}
             >
-              Create*
+              Update*
             </button>
             <button
               type="submit"
-              className="close_board_creation"
-              onClick={closePanel}
+              className="update_board_delete"
+              onClick={(e) => deleteBoard(e)}
             >
-              Cancel*
+              Delete*
             </button>
-          </section>
+          </div>
         </form>
       </div>
       {error !== "" ? <ErrorCard text={error} /> : ""}
@@ -174,4 +220,4 @@ const CreateBoard: React.FC<props> = ({ closePanel }) => {
   );
 };
 
-export default CreateBoard;
+export default BoardSettings;

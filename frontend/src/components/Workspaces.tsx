@@ -42,6 +42,7 @@ const Workspaces: React.FC<props> = ({
         <div className="workspaces_list">
           {boards?.map((board) => (
             <BoardSelectionCard
+              id={board._id}
               title={board.name}
               description={board.description}
               background={board.background}
@@ -49,7 +50,9 @@ const Workspaces: React.FC<props> = ({
               closeSelector={closeBoardSelector}
             />
           )) ?? (
-            <span className="material-symbols-outlined" id="loading_symbol">sync</span>
+            <span className="material-symbols-outlined" id="loading_symbol">
+              sync
+            </span>
           )}
         </div>
       </div>

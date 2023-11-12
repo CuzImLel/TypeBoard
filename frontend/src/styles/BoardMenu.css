@@ -1,32 +1,48 @@
 .board_menu {
-  width: 280px;
+  min-width: 280px;
   background-color: rgb(231, 235, 238);
-  
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.board_menu_upper_section {
+  width: 100%;
 }
 
 .upper_board_selecter {
   display: flex;
   padding: 10px;
   height: 80px;
+
   justify-content: center;
-  
 }
 .upper_board_selecter:hover {
   background-color: var(--text_hover);
   transition: 0.5s;
 }
 
+.board_utils {
+  width: 150px;
+}
+
 .upper_board_selecter_content {
   width: 100%;
+
   display: flex;
   align-items: center;
   gap: 10px;
   cursor: pointer;
   justify-content: space-between;
-  
 }
 
-.upper_board_selecter_content img {
+.boardmenu_icon {
+  width: 50px;
+  height: 50px;
+}
+
+.boardmenu_icon {
   border-radius: 8px;
 }
 
@@ -37,18 +53,24 @@
 
 .upper_board_selecter_content p {
   font-size: 15px;
-
+  white-space: nowrap;
+  overflow: hidden !important;
+  text-overflow: ellipsis;
 }
 
 .upper_board_selecter_content h1 {
   font-weight: 400;
   font-size: 20px;
+  white-space: nowrap;
+  overflow: hidden !important;
+  text-overflow: ellipsis;
 }
 
 .board_configuration_cards {
   display: flex;
   justify-content: space-around;
   flex-direction: column;
+
   align-items: center;
 }
 .board_configuration_cards ul {
@@ -77,4 +99,29 @@
 
 .board_configuration_cards ul li:hover {
   background-color: var(--text_hover);
+}
+
+.under_board_logo {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  gap: 10px;
+  padding: 15px;
+  width: 100%;
+}
+
+.under_board_logo h1 {
+  font-size: 20px;
+  color: var(--dark_text);
+}
+
+.under_board_logo img {
+  width: 30px;
+  height: 30px;
+}
+
+.under_board_logo span {
+  font-size: 30px;
+  transform: rotate(90deg);
+  color: var(--icon_hover);
 }

@@ -4,39 +4,34 @@
   height: 100%;
   display: flex;
   justify-content: center;
-  
+  padding: 50px;
   font-family: "Roboto", sans-serif;
   background-color: rgba(165, 172, 240, 0.2);
 }
 
 .create_board_panel_content {
-  margin-top: 100px;
   opacity: 1;
   display: flex;
-  gap: 40px;
+  padding: 10px 20px 10px 20px;
   align-items: center;
   flex-direction: column;
-  height: 600px;
   width: 400px;
-  border-radius: 20px;
+  height: 550px;
+  border-radius: 10px;
   background-color: rgb(255, 255, 255);
-  border: 3px solid var(--icon_hover);
+  border: 1px solid gray;
+  gap: 20px;
 }
 
 .create_board_panel_content p {
   padding: 20px 0px 20px 0px;
-  font-size: 30px;
-  border-bottom: 2px solid rgb(45, 110, 196);
-  border-radius: 10px;
+  font-size: 35px;
+  border-bottom: 1px solid gray;
   text-align: center;
-  color: rgb(42, 96, 177);
-  width: 90%;
-  font-weight: 600;
-  font-family: sans-serif;
+  width: 100%;
 }
 
 .create_board_panel_content form {
-  padding: 20px;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
@@ -44,46 +39,57 @@
   width: 100%;
   gap: 30px;
 }
-.create_board_panel form div {
+
+.board_background_creater {
+  display: flex;
+  justify-content: left;
+  align-items: start;
+  flex-direction: column;
+  width: 100%;
+  gap: 10px;
+}
+
+.board_name_creater {
   display: flex;
   justify-content: center;
   align-items: start;
   flex-direction: column;
   width: 100%;
-  gap: 20px;
+  gap: 10px;
+}
+
+.board_description_creater {
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  flex-direction: column;
+  width: 100%;
+  gap: 10px;
 }
 
 .create_board_panel form div label {
-  color: var(--icon_hover);
-  font-size: 20px;
+  font-size: 18px;
 }
 
 .create_board_panel form div input {
   width: 100%;
   padding: 10px;
-
   outline: none;
-  background-color: transparent;
-  border: none;
-  border-bottom: 1px solid rgb(173, 173, 173);
-  font-size: 20px;
-  color: rgb(32, 32, 32);
-}
-
-.board_background_creater {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  font-size: 15px;
 }
 
 .colorblock_list {
   width: 100%;
   display: flex;
-  justify-content: space-evenly;
+  gap: 50px;
+  align-items: center;
 }
 
 .colorblock_purple {
-  max-width: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
   height: 50px;
   border-radius: 10px;
   background-color: rgb(228, 149, 228);
@@ -91,7 +97,10 @@
   cursor: pointer;
 }
 .colorblock_green {
-  max-width: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
   height: 50px;
   border-radius: 10px;
   background-color: rgb(113, 190, 113);
@@ -100,7 +109,10 @@
 }
 
 .colorblock_yellow {
-  max-width: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
   height: 50px;
   border-radius: 10px;
   border: 3px solid transparent;
@@ -136,4 +148,11 @@
 }
 .create_board_submit {
   background-color: var(--icon_hover);
+}
+
+#color_tick {
+  background-color: var(--correct);
+  color: white;
+  border-radius: 50%;
+  font-size: 20px;
 }

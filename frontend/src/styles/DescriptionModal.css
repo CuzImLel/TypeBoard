@@ -1,0 +1,87 @@
+.task_description_modal {
+  position: absolute;
+  background-color: rgba(54, 69, 82, 0.479);
+  width: 100%;
+  height: 100%;
+  left: 0;
+  padding: 20px;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.task_description_modal_content {
+  width: 400px;
+  height: auto;
+  background-color: white;
+  border-radius: 5px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;
+}
+
+.task_description_modal_uppercontent {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.task_description_modal_uppercontent h1 {
+  border-bottom: 2px solid var(--dark_text);
+  color: var(--dark_text);
+  padding: 10px;
+  width: 100%;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  font-size: 25px;
+}
+.task_description_modal_uppercontent p {
+  margin-top: 20px;
+  width: 100%;
+  text-align: left;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.task_description_modal_undercontent {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  align-items: center;
+}
+
+.got_it_task_description {
+  padding: 8px 35px 8px 35px;
+  border-radius: 3px;
+  border: none;
+  color: white;
+  background-color: var(--icon_hover_after);
+  cursor: pointer;
+}
+
+.change_task_description {
+  padding: 8px 35px 8px 35px;
+  border-radius: 3px;
+  border: none;
+  color: white;
+  background-color: rgb(69, 175, 69);
+  cursor: pointer;
+}
+
+#description_changer {
+  padding: 10px;
+  font-size: 18px;
+  outline: none;
+  word-wrap: break-word;
+  border: none;
+  padding: 20px;
+  height: 300px;
+}
